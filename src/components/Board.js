@@ -7,10 +7,23 @@ import Card from './Card';
 import NewCardForm from './NewCardForm';
 import CARD_DATA from '../data/card-data.json';
 
-const Board = () => {
+const Board = ({ url, boardName }) => {
+  // iterate over card_data, grab each object, pass into card component
+  const cardsList = CARD_DATA.cards.map(card =>
+    <Card 
+      text={card.text}
+      emoji={card.emoji}
+      // url={url} 
+      // boardName={boardName} 
+    />
+  );
+
   return (
     <div>
-      Board
+      <div className="board">
+        Board
+      </div>
+        {cardsList}
     </div>
   )
 };
