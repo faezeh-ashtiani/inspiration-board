@@ -41,6 +41,16 @@ const Board = ({ url, boardName }) => {
   // then: call getCards
   // catch error, same as everything else!!!
 
+  const postCard = (card) => {
+    axios.post(`${url}boards/${boardName}/cards`, card)
+    .then((/*response*/) => { 
+      getCards();
+    })
+    .catch((error) => {
+      setErrorMessage(error.response.data.cause);
+    });
+  }
+
   // put this into a separate helper function that we can call inline when we render
   // can massage the data into a more friendly format like card.text
   const cards = cardList.map(card => 
@@ -57,7 +67,7 @@ const Board = ({ url, boardName }) => {
     <div>
       <div>{errorMessage}</div>
       <div className="board">
-        <NewCardForm />
+        <NewCardForm onPostCardCallback={postCard}/>
         {cards}
       </div>
       

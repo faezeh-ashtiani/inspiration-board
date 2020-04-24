@@ -5,7 +5,7 @@ import './NewCardForm.css';
 
 const EMOJI_LIST = ["", "heart_eyes", "beer", "clap", "sparkling_heart", "heart_eyes_cat", "dog"];
 
-const NewCardForm = (/*onPostCardCallback*/) => {
+const NewCardForm = ({ onPostCardCallback }) => {
   const [card, setCard] = useState({
     text: "",
     emoji: ""
@@ -26,7 +26,7 @@ const NewCardForm = (/*onPostCardCallback*/) => {
 // so we need a prop sent from Board called onPostCardCallback, which will be our axios post helper function
 
   return (
-    <form className="new-card-form">
+    <form className="new-card-form" onSubmit={() => onPostCardCallback(card)}>
       <div className="new-card-form__header">
         <span>Post a Card</span>
       </div>
