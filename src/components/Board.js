@@ -9,10 +9,11 @@ import CARD_DATA from '../data/card-data.json';
 
 const Board = ({ url, boardName }) => {
   // iterate over card_data, grab each object, pass into card component
+  // TODO: Add key to card
   const cardsList = CARD_DATA.cards.map(card =>
     <Card 
       text={card.text}
-      emoji={card.emoji}
+      emojiText={card.emoji}
       // url={url} 
       // boardName={boardName} 
     />
@@ -21,9 +22,9 @@ const Board = ({ url, boardName }) => {
   return (
     <div>
       <div className="board">
-        Board
-      </div>
         {cardsList}
+      </div>
+        
     </div>
   )
 };
