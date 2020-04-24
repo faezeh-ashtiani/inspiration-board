@@ -33,10 +33,13 @@ const Board = ({ url, boardName }) => {
     })
     .catch((error) => {
       setErrorMessage(error.response.data.cause);
-    }
-
-    )
+    });
   }
+
+  // postCard helper function, params: text (string), emoji (string) passed in from NewCardForm 
+  // axios post request, url: https://inspiration-board.herokuapp.com/boards/:board_name/cards
+  // then: call getCards
+  // catch error, same as everything else!!!
 
   // put this into a separate helper function that we can call inline when we render
   // can massage the data into a more friendly format like card.text
@@ -54,8 +57,10 @@ const Board = ({ url, boardName }) => {
     <div>
       <div>{errorMessage}</div>
       <div className="board">
+        <NewCardForm />
         {cards}
       </div>
+      
     </div>
   )
 };
