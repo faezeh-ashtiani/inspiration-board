@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Board from './components/Board';
 
 const App = () => {
+  const [boardName, setBoardName] = useState(`Ada-Lovelace`)
+
+  
   return (
     <section>
       <header className="header">
@@ -10,7 +13,7 @@ const App = () => {
       </header>
       <Board
         url="https://inspiration-board.herokuapp.com/boards/"
-        boardName={`tofu-tofu-too`}
+        boardName={boardName}
       />
     </section>
   );
