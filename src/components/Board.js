@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
@@ -10,42 +10,33 @@ import CARD_DATA from '../data/card-data.json';
 const Board = ({ url, boardName }) => {
   // iterate over card_data, grab each object, pass into card component
   // TODO: Add key to card
-  const cardsList = CARD_DATA.cards.map(card =>
-    <Card 
-      text={card.text}
-      emojiText={card.emoji}
-      // url={url} 
-      // boardName={boardName} 
+
+  const [ cardList, setCardList ] = useState([]);
+  const [ errorMessage, setErrorMessage ] = useState(null);
+
+  useEffect( () => {
+    axios.get(`${url}${boardName}/cards`)
+    .then((response) => {
+      setCardList(response.data);
+    }).catch((error) => {
+      setErrorMessage(error.cause);
+    })
+  }, [ url, boardName ]);
+
+  // put this into a separate helper function that we can call inline when we render
+  // can massage the data into a more friendly format like card.text
+  const cards = cardList.map(card => 
+    <Card
+      text={card.card.text}
+      emojiText={card.card.emoji}
+      key={card.card.id}
     />
   );
-
-  
- // look into setResult and setError
- // should we assign response to a variable and then iterate it outside of axios?
- // does board need state?
- // ADD ID TO PROPS, DAWGS!!!!
-  useEffect( () =>{
-    axios.get(`${url}+${boardName}/cards`)
-    .then((response) => {
-      response.map(card => 
-        <Card
-          text={card.card.text}
-          emojiText={card.card.emoji}
-          id={card.card.id}
-          />
-      )
-    }).catch((error) => {
-      console.log(error.cause);
-    }
-    )
-  } , []
-     
-  )
 
   return (
     <div>
       <div className="board">
-        {cardsList}
+        {cards}
       </div>
         
     </div>
