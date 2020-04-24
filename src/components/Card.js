@@ -4,7 +4,12 @@ import emoji from 'emoji-dictionary';
 
 import './Card.css';
 
-const Card = ({ text, emojiText, key }) => {
+// DELETE https://inspiration-board.herokuapp.com/cards/:card_id
+
+// add button to card component to DELETE a card
+// make an API call, send the url + card ID
+
+const Card = ({ text, emojiText, id, onClickCallback }) => {
   // if there is text for emoji, we'll run getUnicode, otherwise we'll return ""
 
   const emojiSymbol = (emojiText) => {
@@ -20,6 +25,7 @@ const Card = ({ text, emojiText, key }) => {
       <div className="card__content">
         <div className="card__content-text">{text}</div>
         <div className="card__content-emoji">{emojiSymbol(emojiText)}</div>
+        <button ></button>
       </div>
     </div>
   )
@@ -27,7 +33,9 @@ const Card = ({ text, emojiText, key }) => {
 
 Card.propTypes = {
   text: PropTypes.string,
-  emoji: PropTypes.string // TODO - is this really a string?
+  emoji: PropTypes.string, // TODO - is this really a string?
+  id: PropTypes.number,
+  onClickCallback: PropTypes.func
 };
 
 export default Card;
