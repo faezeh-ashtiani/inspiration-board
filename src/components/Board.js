@@ -14,7 +14,7 @@ const Board = ({ url, boardName }) => {
   const [ errorMessage, setErrorMessage ] = useState(null);
 
   const getCards = useCallback(() => {
-    axios.get(`${url}${boardName}/cards`)
+    axios.get(`${url}boards/${boardName}/cards`)
     .then((response) => {
       setCardList(response.data);
     }).catch((error) => {
@@ -25,8 +25,17 @@ const Board = ({ url, boardName }) => {
   // introduce helper function so this can be called on each data update
   useEffect( getCards, [ getCards ]);
 
-  const deleteCard = () => {
+  // DELETE https://inspiration-board.herokuapp.com/cards/:card_id
+  const deleteCard = (id) => {
+    axios.delete(`${url}cards/${id}`)
+    .then((/*response*/) => { 
+      getCards();
+    })
+    .catch((error) => {
+      setErrorMessage(error.response.data.cause);
+    }
 
+    )
   }
 
   // put this into a separate helper function that we can call inline when we render
@@ -37,6 +46,7 @@ const Board = ({ url, boardName }) => {
       emojiText={card.card.emoji}
       id={card.card.id}
       key={card.card.id}
+      onDeleteCallback={deleteCard}
     />
   );
 
