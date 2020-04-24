@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
@@ -18,6 +18,29 @@ const Board = ({ url, boardName }) => {
       // boardName={boardName} 
     />
   );
+
+  
+ // look into setResult and setError
+ // should we assign response to a variable and then iterate it outside of axios?
+ // does board need state?
+ // ADD ID TO PROPS, DAWGS!!!!
+  useEffect( () =>{
+    axios.get(`${url}+${boardName}/cards`)
+    .then((response) => {
+      response.map(card => 
+        <Card
+          text={card.card.text}
+          emojiText={card.card.emoji}
+          id={card.card.id}
+          />
+      )
+    }).catch((error) => {
+      console.log(error.cause);
+    }
+    )
+  } , []
+     
+  )
 
   return (
     <div>
