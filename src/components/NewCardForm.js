@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import emoji from 'emoji-dictionary';
 import './NewCardForm.css';
 
-const EMOJI_LIST = ["", "heart_eyes", "beer", "clap", "sparkling_heart", "heart_eyes_cat", "dog"];
+const EMOJI_LIST = ["", "heart_eyes", "beer", "clap", "sparkling_heart", "heart_eyes_cat", "dog"]; // TODO: Add a drop-down menu for the user to select an emoji
 
 const NewCardForm = ({ onPostCardCallback }) => {
   const [card, setCard] = useState({
@@ -22,8 +22,6 @@ const NewCardForm = ({ onPostCardCallback }) => {
     newCard[event.target.name] = event.target.value;
     setCard(newCard);
   }
-
-// so we need a prop sent from Board called onPostCardCallback, which will be our axios post helper function
 
   return (
     <form className="new-card-form" onSubmit={() => onPostCardCallback(card)}>
@@ -54,6 +52,10 @@ const NewCardForm = ({ onPostCardCallback }) => {
       
 
   );
+}
+
+NewCardForm.propTypes = {
+  onPostCardCallback: PropTypes.func.isRequired
 }
 
 export default NewCardForm;

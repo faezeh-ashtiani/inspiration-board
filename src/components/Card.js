@@ -38,7 +38,7 @@ Card.propTypes = {
   text: PropTypes.string,
   emoji: PropTypes.string, // TODO - is this really a string?
   id: PropTypes.number,
-  onDeleteCallback: PropTypes.func
+  onDeleteCallback: PropTypes.func.isRequired
 };
 
 export default Card;
