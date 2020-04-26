@@ -3,7 +3,9 @@
 exports[`Board that it matches the existing snapshot 1`] = `
 <DocumentFragment>
   <div>
-    <div />
+    <div
+      class="validation-errors-display"
+    />
     <div
       class="board"
     >
@@ -12,14 +14,16 @@ exports[`Board that it matches the existing snapshot 1`] = `
       >
         <div
           class="new-card-form__header"
-        >
-          <span>
-            Post a Card
-          </span>
-        </div>
+        />
         <div
           class="new-card-form__form"
         >
+          <label
+            class="new-card-form__form-label"
+            for="text"
+          >
+            text
+          </label>
           <input
             class="new-card-form__form-textarea"
             name="text"
@@ -27,17 +31,161 @@ exports[`Board that it matches the existing snapshot 1`] = `
             type="text"
             value=""
           />
-          <input
-            class="new-card-form__form-textarea"
+          <label
+            class="new-card-form__form-label"
+            for="emoji"
+          >
+            emoji
+          </label>
+          <select
+            class="new-card-form__form-select"
             name="emoji"
-            placeholder="emoji"
-            type="text"
-            value=""
-          />
+          >
+            <option
+              value=""
+            >
+              Select an Emoji!
+            </option>
+            <option
+              value="heart_eyes"
+            >
+              😍
+            </option>
+            <option
+              value="smiling_face_with_three_hearts"
+            >
+              🥰
+            </option>
+            <option
+              value="zany"
+            >
+              🤪
+            </option>
+            <option
+              value="eyes"
+            >
+              👀
+            </option>
+            <option
+              value="sparkles"
+            >
+              ✨
+            </option>
+            <option
+              value="sunflower"
+            >
+              🌻
+            </option>
+            <option
+              value="seedling"
+            >
+              🌱
+            </option>
+            <option
+              value="cherry_blossom"
+            >
+              🌸
+            </option>
+            <option
+              value="beer"
+            >
+              🍺
+            </option>
+            <option
+              value="clap"
+            >
+              👏
+            </option>
+            <option
+              value="heart"
+            >
+              ❤️
+            </option>
+            <option
+              value="sparkling_heart"
+            >
+              💖
+            </option>
+            <option
+              value="heart_eyes_cat"
+            >
+              😻
+            </option>
+            <option
+              value="dog"
+            >
+              🐶
+            </option>
+            <option
+              value="sob"
+            >
+              😭
+            </option>
+            <option
+              value="fu"
+            >
+              🖕
+            </option>
+            <option
+              value="hugs"
+            >
+              🤗
+            </option>
+            <option
+              value="partying"
+            >
+              🥳
+            </option>
+            <option
+              value="star_struck"
+            >
+              🤩
+            </option>
+            <option
+              value="sunglasses"
+            >
+              😎
+            </option>
+            <option
+              value="space_invader"
+            >
+              👾
+            </option>
+            <option
+              value="brain"
+            >
+              🧠
+            </option>
+            <option
+              value="takeout_box"
+            >
+              🥡
+            </option>
+            <option
+              value="nerd_face"
+            >
+              🤓
+            </option>
+            <option
+              value="fire"
+            >
+              🔥
+            </option>
+            <option
+              value="rainbow"
+            >
+              🌈
+            </option>
+            <option
+              value="mask"
+            >
+              😷
+            </option>
+          </select>
           <input
             class="new-card-form__form-button"
             type="submit"
-            value="Submit"
+            value="Post a Card"
           />
         </div>
       </form>

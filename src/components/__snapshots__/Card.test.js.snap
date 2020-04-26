@@ -3,7 +3,7 @@
 exports[`Card that it matches the existing snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="card"
+    class="card yellow"
   >
     <div
       class="card__content"
