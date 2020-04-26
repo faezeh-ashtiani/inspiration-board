@@ -26,7 +26,7 @@ const NewCardForm = ({ onPostCardCallback }) => {
   return (
     <form className="new-card-form" onSubmit={() => onPostCardCallback(card)}>
       <div className="new-card-form__header">
-        <span>Post a Card</span>
+        {/* <span>Post a Card</span> */}
       </div>
       <div className="new-card-form__form">
         {/* <label className="new-card-form__form-label" htmlFor=""></label> */}
@@ -38,15 +38,21 @@ const NewCardForm = ({ onPostCardCallback }) => {
           value={card.text}
           onChange={onInputChange}
         />
-        <input 
-          className="new-card-form__form-textarea" 
-          type="text" 
+        <select 
+          className="new-card-form__form-select"  
           name="emoji"
-          placeholder="emoji" 
           value={card.emoji}
           onChange={onInputChange}
-        />
-        <input type='submit' className="new-card-form__form-button" value='Submit'/>
+         >
+           <option value={EMOJI_LIST[0]}>Select an Emoji!</option>
+           <option value={EMOJI_LIST[1]}>{emoji.getUnicode('heart_eyes')}</option>
+           <option value={EMOJI_LIST[2]}>{emoji.getUnicode('beer')}</option>
+           <option value={EMOJI_LIST[3]}>{emoji.getUnicode('clap')}</option>
+           <option value={EMOJI_LIST[4]}>{emoji.getUnicode('sparkling_heart')}</option>
+           <option value={EMOJI_LIST[5]}>{emoji.getUnicode('heart_eyes_cat')}</option>
+           <option value={EMOJI_LIST[6]}>{emoji.getUnicode('dog')}</option>
+         </select>
+        <input type='submit' className="new-card-form__form-button" value='Post a Card'/>
       </div>
     </form>
       
