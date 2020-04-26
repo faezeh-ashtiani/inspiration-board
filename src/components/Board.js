@@ -65,7 +65,7 @@ const Board = ({ url, boardName }) => {
 
   return (
     <div>
-      <div>{errorMessage}</div>
+      <div className='validation-errors-display'>{errorMessage}</div>
       <div className="board">
         <NewCardForm onPostCardCallback={postCard}/>
         {cards}
