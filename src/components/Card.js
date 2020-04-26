@@ -22,9 +22,19 @@ const Card = ({ text, emojiText, id, onDeleteCallback }) => {
 
   // the underscore before the event tels linter to ignore the variable
   const deleteCard = (_event) => onDeleteCallback(id);
+
+  const randomItem = function(items) {
+    return items[Math.floor(Math.random()*items.length)];
+  };
+
+  const randomColor = () => {
+    const colors =['yellow', 'pink', 'blue', 'green'];
+    const colorClass = randomItem(colors);
+    return `card ${colorClass}`
+  };
   
   return (
-    <div className="card"> 
+    <div className={randomColor()}> 
       <div className="card__content">
         <div className="card__content-text">{text}</div>
         <div className="card__content-emoji">{emojiSymbol(emojiText)}</div>

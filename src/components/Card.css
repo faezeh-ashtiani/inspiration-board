@@ -1,5 +1,5 @@
 .card {
-  background-color: #F4FF81;
+  
 
   padding: 1em 0;
   margin: 0.5rem;
@@ -13,6 +13,22 @@
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   align-items: center;
+}
+
+.yellow {
+  background-color: #F4FF81;
+}
+
+.pink {
+  background-color: #ff7eb9;
+}
+
+.blue {
+  background-color: #7afcff;
+}
+
+.green {
+  background-color: #98FB98;
 }
 
 .card__content {
@@ -44,4 +60,5 @@
 .card__delete {
   align-self: start;
   font-family: 'Permanent Marker', Helvetica, sans-serif;
+  margin-right: .5rem;
 }
