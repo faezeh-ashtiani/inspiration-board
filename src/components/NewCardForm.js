@@ -25,7 +25,7 @@ const NewCardForm = ({ onPostCardCallback }) => {
     const emojis = [];
 
     for (let i = 1; i < emojiList.length; i++) {
-      emojis.push(<option value={emojiList[i]}>{emoji.getUnicode(emojiList[i])}</option>);
+      emojis.push(<option key={i} value={emojiList[i]}>{emoji.getUnicode(emojiList[i])}</option>);
     };
     
     return emojis;
