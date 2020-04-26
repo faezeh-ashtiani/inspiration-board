@@ -3,9 +3,8 @@ import './App.css';
 import Board from './components/Board';
 
 const App = () => {
-  const [boardName, setBoardName] = useState(`tofu-tofu-too-too-too`)
+  const [boardName, setBoardName] = useState(`tofu-tofu-too-too-too`);
 
-  
   return (
     <section>
       <header className="header">
