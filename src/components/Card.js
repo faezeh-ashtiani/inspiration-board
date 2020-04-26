@@ -1,36 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import emoji from 'emoji-dictionary';
 
 import './Card.css';
 
-// DELETE https://inspiration-board.herokuapp.com/cards/:card_id
-
-// add button to card component to DELETE a card
-// make an API call, send the url + card ID
-
 const Card = ({ text, emojiText, id, onDeleteCallback }) => {
-  // if there is text for emoji, we'll run getUnicode, otherwise we'll return ""
 
-  const emojiSymbol = (emojiText) => {
-    if (emojiText) {
-      return emoji.getUnicode(emojiText);
-    } else {
-      return "";
-    }
-  }
+  const emojiSymbol = (input) => {
+    return (input) ? emoji.getUnicode(input) : ""; // if an emoji was not selected, the input it will not be converted via emoji dictionary
+  };
 
-  // the underscore before the event tels linter to ignore the variable
-  const deleteCard = (_event) => onDeleteCallback(id);
+  const deleteCard = (_event) => onDeleteCallback(id); // the underscore before the event tells linter to ignore the variable
 
-  const randomItem = function(items) {
+  const randomItem = (items) => {
     return items[Math.floor(Math.random()*items.length)];
   };
 
   const randomColor = () => {
     const colors =['yellow', 'pink', 'blue', 'green'];
     const colorClass = randomItem(colors);
-    return `card ${colorClass}`
+    return `card ${colorClass}`;
   };
   
   return (
@@ -41,12 +30,12 @@ const Card = ({ text, emojiText, id, onDeleteCallback }) => {
       </div>
       <button className="card__delete" onClick={deleteCard}>X</button>
     </div>
-  )
-}
+  );
+};
 
 Card.propTypes = {
   text: PropTypes.string,
-  emoji: PropTypes.string, // TODO - is this really a string?
+  emojiText: PropTypes.string,
   id: PropTypes.number,
   onDeleteCallback: PropTypes.func.isRequired
 };
